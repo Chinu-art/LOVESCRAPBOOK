@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Love Scrapbook 💖</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="loading-screen">
+    <p>Loading our memories...</p>
+    <audio id="loading-sound" src="assets/sounds/soft-load.mp3"></audio>
+  </div>
+  <header>
+    <h1 contenteditable="true">This is our space Gagudiii 💕</h1>
+    <nav>
+      <button onclick="showSection('gallery')">📷 Gallery</button>
+      <button onclick="showSection('blog')">📝 Blog</button>
+      <button onclick="showSection('flipbook')">📖 Flipbook</button>
+      <button onclick="showSection('music')">🎵 Music</button>
+      <button onclick="showSection('calendar')">📅 Our Memories</button>
+      <button onclick="showSection('countdown')">⏳ Countdown</button>
+      <button onclick="showSection('chat')">💬 Messenger</button>
+      <button onclick="showSection('moodboard')">🎨 Moodboard</button>
+      <button onclick="toggleSettings()">⚙️ Settings</button>
+      <button onclick="toggleCleanMode()">🧼 Clean Mode</button>
+    </nav>
+  </header>
+  <main>
+    <section id="gallery" class="content-section">Gallery Upload and View</section>
+    <section id="blog" class="content-section">Blog Writer and Display</section>
+    <section id="flipbook" class="content-section">Flipbook Uploader and Viewer</section>
+    <section id="music" class="content-section">YouTube + Spotify Integrator</section>
+    <section id="calendar" class="content-section">Customizable Calendar</section>
+    <section id="countdown" class="content-section">Countdown Timer</section>
+    <section id="chat" class="content-section">Private Messenger</section>
+    <section id="moodboard" class="content-section">Moodboard Entries</section>
+  </main>
+  <aside id="settings-panel" class="hidden">
+    <h3>Settings ⚙️</h3>
+    <label>Change Theme Background <input type="file" accept="image/*" onchange="changeBackground(event)"></label>
+    <label>Change Nickname <input type="text" id="nicknameInput" placeholder="Enter nickname..."></label>
+    <button onclick="saveNickname()">Save Nickname</button>
+  </aside>
+  <footer>
+    <p contenteditable="true">&copy; Our Digital Lovebook</p>
+  </footer>
+</body>
+</html>
+    
