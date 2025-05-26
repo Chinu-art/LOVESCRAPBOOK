@@ -1,28 +1,43 @@
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script loaded");
 
-function showSection(id) {
-  document.querySelectorAll('.content-section').forEach(sec => sec.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-}
-function toggleSettings() {
-  const panel = document.getElementById('settings-panel');
-  panel.classList.toggle('hidden');
-}
-function toggleCleanMode() {
-  document.body.classList.toggle('clean-mode');
-}
-function changeBackground(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      document.body.style.backgroundImage = `url('${e.target.result}')`;
-    };
-    reader.readAsDataURL(file);
+  function showSection(id) {
+    document.querySelectorAll(".content-section").forEach(section => {
+      section.style.display = "none";
+    });
+    const active = document.getElementById(id);
+    if (active) active.style.display = "block";
   }
-}
-function saveNickname() {
-  const nickname = document.getElementById('nicknameInput').value;
-  if (nickname) {
-    alert('Nickname saved: ' + nickname);
+
+  window.showSection = showSection;
+
+  window.toggleSettings = function () {
+    const panel = document.getElementById('settings-panel');
+    panel.classList.toggle('hidden');
   }
-}
+
+  window.toggleCleanMode = function () {
+    document.body.classList.toggle('clean-mode');
+  }
+
+  window.changeBackground = function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        document.body.style.backgroundImage = `url('${reader.result}')`;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  window.saveNickname = function () {
+    const nickname = document.getElementById('nicknameInput').value;
+    if (nickname) {
+      document.querySelector('h1').textContent = `This is our space ${nickname} 💕`;
+    }
+  }
+
+  // Optional: show the first section (e.g., gallery) by default
+  showSection('gallery');
+});
